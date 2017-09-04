@@ -4,6 +4,11 @@ class Register extends Component {
   constructor(props) {
     super(props);
 
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSecretChange = this.handleSecretChange.bind(this);
+
     this.state = {
       name: '',
       email: '',
@@ -12,20 +17,36 @@ class Register extends Component {
     }
   }
 
+  handleNameChange(event) {
+    this.setState({name: event.target.value})
+  }
+  handleEmailChange(event) {
+    this.setState({email: event.target.value})
+  }
+  handlePasswordChange(event) {
+    this.setState({password: event.target.value})
+  }
+  handleSecretChange(event) {
+    this.setState({secret: event.target.value})
+  }
+  handleRegisterSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleRegisterSubmit}>
         <label>Name:</label>
-        <input placeholder="Full Name" name="name" type="text" />
+        <input value={this.state.name} onChange={this.handleNameChange} placeholder="Full Name" name="name" type="text" />
 
         <label>E-mail:</label>
-        <input placeholder="Email address" name="email" type="email" />
+        <input value={this.state.email} onChange={this.handleEmailChange} placeholder="Email address" name="email" type="email" />
 
         <label>Password:</label>
-        <input placeholder="Enter a password" name="password" type="password" />
+        <input value={this.state.password} onChange={this.handlePasswordChange} placeholder="Enter a password" name="password" type="password" />
 
         <label>Your Secret:</label>
-        <textarea type="text" name="secret" />
+        <textarea value={this.state.secret} onChange={this.handleSecretChange} type="text" name="secret" />
 
         <button className="btn">Submit</button>
       </form>
