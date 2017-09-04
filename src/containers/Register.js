@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {register} from '../actions/actions';
 
 class Register extends Component {
   constructor(props) {
@@ -31,6 +33,7 @@ class Register extends Component {
   }
   handleRegisterSubmit(event) {
     event.preventDefault();
+    register();
   }
 
   render() {
@@ -54,4 +57,12 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapDispatchToProps = function(dispatch) {
+    return {
+        register: function(name, email, password, secret) {
+            dispatch(register(name, email, password, secret));
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Register);
