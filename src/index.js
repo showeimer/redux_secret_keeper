@@ -28,6 +28,8 @@ ReactDOM.render(
 
           <Route exact path="/" component={App} />
           <Route path="/register" component={Register} />
+          <Route path="/login" component={Register} />
+          
         </Switch>
       </BaseLayout>
     </BrowserRouter>
