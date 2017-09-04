@@ -1,4 +1,4 @@
-import {SET_TOKEN, SET_ERROR} from './actions';
+import {SET_TOKEN, SET_ERROR, SET_USER} from '../actions/actions';
 
 import update from 'immutability-helper';
 
@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
           $set: action.payload
         }
       })
-      
+
     case SET_TOKEN:
       return update(state, {
         token: {

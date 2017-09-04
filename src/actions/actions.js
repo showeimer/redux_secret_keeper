@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_ERROR = 'SET_ERROR';
+export const SET_USER = 'SET_USER';
 
 const makeActionCreator = function(actionType) {
     return function(payload) {
@@ -12,6 +13,7 @@ const makeActionCreator = function(actionType) {
 
 const setToken = makeActionCreator(SET_TOKEN);
 const setError = makeActionCreator(SET_ERROR);
+const setUser = makeActionCreator(SET_USER);
 
 const baseURL = "https://user-auth-test.herokuapp.com";
 const api = (path) => baseURL + path;
