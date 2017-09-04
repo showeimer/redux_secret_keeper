@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import '../style/App.css';
 import {Link} from 'react-router-dom'
-
+import {connect} from 'react-redux';
+import {loadTokenFromCookie} from "../actions/actions";
 
 class App extends Component {
+
+  componentWillMount() {
+    const loadToken = this.props.loadToken;
+    loadToken();
+  }
+
   render() {
     return (
       <div className="jumbotron">
@@ -19,4 +26,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {};
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadToken: () => dispatch(loadTokenFromCookie())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -3,23 +3,34 @@ import ReactDOM from 'react-dom';
 import './style/index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
-
 import BaseLayout from './components/BaseLayout';
-import App from './components/App';
+import App from './containers/App';
+
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {createStore, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
+import reduxThunk from 'redux-thunk';
+import reducer from './reducer';
+
+const store = createStore(
+    reducer,
+    applyMiddleware(reduxThunk)
+);
+
 
 
 ReactDOM.render(
-  <BrowserRouter>
-    <BaseLayout>
-      <Switch>
+  <Provider store={store}>
+    <BrowserRouter>
+      <BaseLayout>
+        <Switch>
 
-        <Route exact path="/" component={App} />
+          <Route exact path="/" component={App} />
 
-      </Switch>
-    </BaseLayout>
-  </BrowserRouter>
-
+        </Switch>
+      </BaseLayout>
+    </BrowserRouter>
+  </Provider>
 
   , document.getElementById('root'));
 registerServiceWorker();

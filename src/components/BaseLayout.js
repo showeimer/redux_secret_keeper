@@ -9,7 +9,7 @@ class BaseLayout extends Component {
           <NavLink exact to="/">Home</NavLink>
           <NavLink to="register">Register</NavLink>
           <NavLink to="login">Login</NavLink>
-          <button>Log Out</button>
+          <button className="btn btn-danger">Log Out</button>
         </nav>
         {this.props.children}
       </div>
