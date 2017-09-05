@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {login} from '../actions/actions';
+import { withRouter } from 'react-router-dom';
 
 class Register extends Component {
   constructor(props) {
@@ -59,4 +60,4 @@ const mapDispatchToProps = function(dispatch) {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Register);
+export default withRouter(connect(null, mapDispatchToProps)(Register));

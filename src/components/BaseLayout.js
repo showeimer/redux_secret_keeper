@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {userLogOut} from '../actions/actions';
 
 class BaseLayout extends Component {
@@ -22,6 +23,7 @@ class BaseLayout extends Component {
           <NavLink className="nav-link" exact to="/">Home</NavLink>
           <NavLink className="nav-link" exact to="/register">Register</NavLink>
           <NavLink className="nav-link" exact to="/login">Login</NavLink>
+          <NavLink style={{color: 'yellow'}} className="nav-link" exact to="/dashboard">Secret</NavLink>
           <button className="" onClick={this.handleLogOut} className="btn btn-danger">Log Out</button>
         </nav>
         {this.props.children}
@@ -38,4 +40,4 @@ const mapDispatchToProps = function(dispatch) {
     }
 }
 
-export default connect(null, mapDispatchToProps)(BaseLayout);
+export default withRouter(connect(null, mapDispatchToProps)(BaseLayout));

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getDashboard} from '../actions/actions';
+import { withRouter } from 'react-router-dom';
 import {loadTokenFromCookie} from "../actions/actions";
 
 
@@ -53,4 +54,4 @@ const mapDispatchToProps = function(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dashboard));

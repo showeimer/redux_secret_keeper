@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../style/App.css';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {loadTokenFromCookie} from "../actions/actions";
 
 class App extends Component {
@@ -36,4 +37,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
