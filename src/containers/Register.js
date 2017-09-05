@@ -10,6 +10,7 @@ class Register extends Component {
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSecretChange = this.handleSecretChange.bind(this);
+    this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
 
     this.state = {
       name: '',
@@ -33,8 +34,9 @@ class Register extends Component {
   }
   handleRegisterSubmit(event) {
     event.preventDefault();
-    register(this.state.name, this.state.email, this.state.password, this.state.secret);
+    this.props.register(this.state.email, this.state.password, this.state.name, this.state.secret);
     this.setState({name: '', email: '', password: '', secret: ''});
+    this.props.history.push('/login');
   }
 
   render() {
@@ -60,8 +62,8 @@ class Register extends Component {
 
 const mapDispatchToProps = function(dispatch) {
     return {
-        register: function(name, email, password, secret) {
-            dispatch(register(name, email, password, secret));
+        register: function(email, password, name, secret) {
+            dispatch(register(email, password, name, secret));
         }
     }
 }

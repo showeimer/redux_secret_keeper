@@ -18,17 +18,16 @@ const setUser = makeActionCreator(SET_USER);
 const baseURL = "https://user-auth-test.herokuapp.com";
 const api = (path) => baseURL + path;
 
-export const register = (name, email, password, secret) => {
+export const register = (email, password, name, secret) => {
   return (dispatch) => {
     request
       .post(api("/register"))
-      .send({full_name: name, email: email, password: password, message: secret})
+      .send({email: email, password: password, full_name: name, message: secret})
       .end((err, res) => {
         if(err) {
           console.log(res.body.errors);
         } else {
           console.log('Registration successful');
-          this.props.history.push('/login');
         }
       })
   }
@@ -44,6 +43,7 @@ export const login = (email, password) => {
           return dispatch(setError(res.body.errors));
         } else {
           dispatch(setError(null));
+          console.log('Login successful');
         }
 
         dispatch(setToken(res.body['auth_token']));

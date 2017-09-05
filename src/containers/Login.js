@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {register} from '../actions/actions';
+import {login} from '../actions/actions';
 
 class Register extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Register extends Component {
 
   handleLoginSubmit(event) {
     event.preventDefault();
-    login(this.state.email,this.state.password);
+    this.props.login(this.state.email,this.state.password);
     this.setState({email: '', password: ''});
   }
 
@@ -49,7 +49,7 @@ class Register extends Component {
 const mapDispatchToProps = function(dispatch) {
     return {
         login: function(email, password) {
-            dispatch(register(email, password));
+            dispatch(login(email, password));
         }
     }
 }

@@ -6,6 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import BaseLayout from './components/BaseLayout';
 import App from './containers/App';
 import Register from './containers/Register';
+import Login from './containers/Login';
+import Dashboard from './components/Dashboard';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {createStore, applyMiddleware} from 'redux';
@@ -28,8 +30,9 @@ ReactDOM.render(
 
           <Route exact path="/" component={App} />
           <Route path="/register" component={Register} />
-          <Route path="/login" component={Register} />
-          
+          <Route path="/login" component={Login} />
+          <Route path="/dashboard" component={Dashboard} />
+
         </Switch>
       </BaseLayout>
     </BrowserRouter>

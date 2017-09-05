@@ -1,4 +1,4 @@
-import {SET_TOKEN, SET_ERROR, SET_USER} from '../actions/actions';
+import {SET_TOKEN, SET_ERROR} from '../actions/actions';
 
 import update from 'immutability-helper';
 
