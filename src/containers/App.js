@@ -20,7 +20,7 @@ class App extends Component {
 
         <h5>Create an account to get started, or log back in if you're already on Secret Keeper.</h5>
         <Link className="btn btn-primary" to="/register">Register</Link>
-        <Link className="btn btn-secondary" to="/login">Log Back In</Link>
+        <Link className="btn btn-success" to="/login">Log Back In</Link>
       </div>
     );
   }

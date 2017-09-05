@@ -1,24 +1,24 @@
-.App {
-  text-align: center;
+.wrapper {
+  margin: 5% 10%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.form {
+  margin-top: 2.5%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.form h2 {
+  margin-bottom: 5%;
 }
 
-.App-intro {
-  font-size: large;
+.jumbotron a {
+  margin-top: 2.5%;
+  margin-right: 2.5%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.secret {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

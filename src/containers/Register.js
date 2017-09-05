@@ -41,20 +41,31 @@ class Register extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleRegisterSubmit}>
-        <label>Name:</label>
-        <input value={this.state.name} onChange={this.handleNameChange} placeholder="Full Name" name="name" type="text" />
+      <form className="col-md-8 form" onSubmit={this.handleRegisterSubmit}>
+        <h2>Registration:</h2>
 
-        <label>E-mail:</label>
-        <input value={this.state.email} onChange={this.handleEmailChange} placeholder="Email address" name="email" type="email" />
+        <div className='form-group'>
+          <label>Name:</label>
+          <input className="form-control" value={this.state.name} onChange={this.handleNameChange} placeholder="Full Name" name="name" type="text" />
+        </div>
 
-        <label>Password:</label>
-        <input value={this.state.password} onChange={this.handlePasswordChange} placeholder="Enter a password" name="password" type="password" />
+        <div className='form-group'>
+          <label>E-mail:</label>
+          <input className="form-control" value={this.state.email} onChange={this.handleEmailChange} placeholder="Email address" name="email" type="email" />
 
-        <label>Your Secret:</label>
-        <textarea value={this.state.secret} onChange={this.handleSecretChange} type="text" name="secret" />
+        </div>
 
-        <button className="btn">Submit</button>
+        <div className='form-group'>
+          <label>Password:</label>
+          <input className="form-control" value={this.state.password} onChange={this.handlePasswordChange} placeholder="Enter a password" name="password" type="password" />
+        </div>
+
+        <div className='form-group'>
+          <label>Your Secret:</label>
+          <textarea className="form-control" value={this.state.secret} onChange={this.handleSecretChange} type="text" name="secret" />
+        </div>
+
+        <button className="btn btn-primary">Submit</button>
       </form>
     )
   }

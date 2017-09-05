@@ -17,12 +17,12 @@ class BaseLayout extends Component {
 
   render() {
     return (
-      <div>
-        <nav>
-          <NavLink exact to="/">Home</NavLink>
-          <NavLink exact to="/register">Register</NavLink>
-          <NavLink exact to="/login">Login</NavLink>
-          <button onClick={this.handleLogOut} className="btn btn-danger">Log Out</button>
+      <div className="wrapper">
+        <nav className="nav justify-content-end bg-dark">
+          <NavLink className="nav-link" exact to="/">Home</NavLink>
+          <NavLink className="nav-link" exact to="/register">Register</NavLink>
+          <NavLink className="nav-link" exact to="/login">Login</NavLink>
+          <button className="" onClick={this.handleLogOut} className="btn btn-danger">Log Out</button>
         </nav>
         {this.props.children}
       </div>

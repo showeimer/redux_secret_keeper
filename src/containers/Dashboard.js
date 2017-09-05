@@ -17,10 +17,19 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.props.name}</h1>
-        <h1>{this.props.secret}</h1>
-        <h1>{this.props.email}</h1>
+      <div className="card text-center">
+        <div className="card-header">
+          {this.props.name}
+        </div>
+
+        <div className="card-block secret">
+          <h4>Your Secret:</h4>
+          <p className="card-text">{this.props.secret}</p>
+        </div>
+
+        <div className="card-footer text-muted">
+          {this.props.email}
+        </div>
       </div>
     )
   }

@@ -33,15 +33,19 @@ class Register extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleLoginSubmit}>
+      <form className="col-md-8 form" onSubmit={this.handleLoginSubmit}>
 
-        <label>E-mail:</label>
-        <input value={this.state.email} onChange={this.handleEmailChange} placeholder="Email address" name="email" type="email" />
+        <div className="form-group">
+          <label>E-mail:</label>
+          <input className="form-control" value={this.state.email} onChange={this.handleEmailChange} placeholder="Email address" name="email" type="email" />
+        </div>
 
-        <label>Password:</label>
-        <input value={this.state.password} onChange={this.handlePasswordChange} placeholder="Enter a password" name="password" type="password" />
+        <div className="form-group">
+          <label>Password:</label>
+          <input className="form-control" value={this.state.password} onChange={this.handlePasswordChange} placeholder="Enter a password" name="password" type="password" />
+        </div>
 
-        <button className="btn">Login</button>
+        <button className="btn btn-primary">Login</button>
       </form>
     )
   }
