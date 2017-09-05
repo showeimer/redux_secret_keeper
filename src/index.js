@@ -7,7 +7,7 @@ import BaseLayout from './components/BaseLayout';
 import App from './containers/App';
 import Register from './containers/Register';
 import Login from './containers/Login';
-import Dashboard from './components/Dashboard';
+import Dashboard from './containers/Dashboard';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {createStore, applyMiddleware} from 'redux';

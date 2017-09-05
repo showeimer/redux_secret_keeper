@@ -43,7 +43,7 @@ export const login = (email, password) => {
           return dispatch(setError(res.body.errors));
         } else {
           dispatch(setError(null));
-          console.log('Login successful');
+          console.log('Login successful', res);
         }
 
         dispatch(setToken(res.body['auth_token']));
@@ -60,9 +60,10 @@ export const getDashboard = (token) => {
       .set('X-AUTH-TOKEN', getState()['token'])
       .end((err, res) => {
         if (err) {
+          console.log(res.body);
           return dispatch(setError(res.body.errors));
         }
-        dispatch(setUser({email: res.body.email, 'full_name': res.body.full_name, message: res.body.message}))
+        dispatch(setUser({email: res.body.email, name: res.body.full_name, secret: res.body.message}))
       })
   }
 }
@@ -73,6 +74,7 @@ export const loadTokenFromCookie = () => {
       if (token) {
         dispatch(setToken(token));
         dispatch(getDashboard());
+        console.log(token);
       }
     }
 }
