@@ -1,4 +1,4 @@
-import {SET_TOKEN, SET_ERROR, SET_USER} from '../actions/actions';
+import {SET_TOKEN, SET_ERROR, SET_USER, LOG_OUT} from '../actions/actions';
 
 import update from 'immutability-helper';
 
@@ -38,6 +38,25 @@ const reducer = (state = initialState, action) => {
           $set: action.payload.secret
         }
       });
+
+    case LOG_OUT:
+      return update(state, {
+        token: {
+          $set: null
+        },
+        error: {
+          $set: null
+        },
+        email: {
+          $set: null
+        },
+        name: {
+          $set: null
+        },
+        secret: {
+          $set: null
+        }
+      })
 
     default:
       return state;
